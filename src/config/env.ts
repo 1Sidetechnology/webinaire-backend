@@ -19,7 +19,7 @@ interface EnvConfig {
   JWT_EXPIRES_IN: string;
 
   // Supabase
-  SUPABASE_URL: string;
+  SUPABASE_URI: string;
   SUPABASE_ANON_KEY: string;
   SUPABASE_SERVICE_KEY: string;
 
@@ -85,7 +85,7 @@ export const env: EnvConfig = {
   JWT_EXPIRES_IN: getEnvVariable("JWT_EXPIRES_IN", "7d"),
 
   // Supabase
-  SUPABASE_URL: getEnvVariable("SUPABASE_URL"),
+  SUPABASE_URI: getEnvVariable("SUPABASE_URI"),
   SUPABASE_ANON_KEY: getEnvVariable("SUPABASE_ANON_KEY"),
   SUPABASE_SERVICE_KEY: getEnvVariable("SUPABASE_SERVICE_KEY"),
 

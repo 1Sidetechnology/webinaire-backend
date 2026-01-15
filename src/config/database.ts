@@ -6,7 +6,7 @@ import env from "./env";
  * Utilisé pour toutes les opérations backend qui nécessitent
  * des permissions élevées (bypass RLS)
  */
-export const supabase: SupabaseClient = createClient(env.SUPABASE_URL, env.SUPABASE_SERVICE_KEY, {
+export const supabase: SupabaseClient = createClient(env.SUPABASE_URI, env.SUPABASE_SERVICE_KEY, {
   auth: {
     autoRefreshToken: false,
     persistSession: false,
