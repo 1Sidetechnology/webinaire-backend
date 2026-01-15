@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import supabase from "../config/database";
 import { UserModel } from "../models/User";
 import { WebinarModel } from "../models/Webinar";
 import { RegistrationModel } from "../models/Registration";
@@ -74,6 +75,13 @@ export class RegistrationController {
 
       // Mettre à jour le paiement avec le checkout ID
       await PaymentModel.updateStatus(payment.id, "pending");
+
+      // Mettre à jour le sumup_checkout_id dans le paiement
+      const { error } = await supabase.from("payments").update({ sumup_checkout_id: checkoutId }).eq("id", payment.id);
+
+      if (error) {
+        console.error("Erreur mise à jour checkout_id:", error);
+      }
 
       // Lier le paiement à l'inscription
       await RegistrationModel.linkPayment(registration.id, payment.id);

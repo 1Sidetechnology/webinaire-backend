@@ -13,7 +13,7 @@ export class EmailService {
    * Initialiser le transporter nodemailer
    */
   static initialize(): void {
-    this.transporter = nodemailer.createTransporter({
+    this.transporter = nodemailer.createTransport({
       host: env.SMTP_HOST,
       port: env.SMTP_PORT,
       secure: env.SMTP_SECURE, // false pour port 587

@@ -46,7 +46,7 @@ export const authMiddleware = (req: Request, res: Response, next: NextFunction):
  * Middleware optionnel - N'échoue pas si le token est manquant
  * Utile pour les routes où l'authentification est optionnelle
  */
-export const optionalAuthMiddleware = (req: Request, res: Response, next: NextFunction): void => {
+export const optionalAuthMiddleware = (req: Request, _res: Response, next: NextFunction): void => {
   try {
     const token = extractToken(req.headers.authorization);
 

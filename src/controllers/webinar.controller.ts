@@ -166,7 +166,7 @@ export class WebinarController {
    * Obtenir des statistiques sur les webinaires
    * GET /api/webinars/stats/summary
    */
-  static getStats = asyncHandler(async (req: Request, res: Response) => {
+  static getStats = asyncHandler(async (_req: Request, res: Response) => {
     const { webinars: allWebinars } = await WebinarModel.list({ limit: 1000 });
 
     const stats = {

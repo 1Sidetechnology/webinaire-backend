@@ -63,7 +63,7 @@ class App {
    */
   private initializeRoutes(): void {
     // Health check
-    this.app.get("/health", (req: Request, res: Response) => {
+    this.app.get("/health", (_req: Request, res: Response) => {
       res.json({
         status: "ok",
         timestamp: new Date().toISOString(),
@@ -75,7 +75,7 @@ class App {
     this.app.use("/api", routes);
 
     // Page d'accueil
-    this.app.get("/", (req: Request, res: Response) => {
+    this.app.get("/", (_req: Request, res: Response) => {
       res.json({
         message: "API Système de Webinaires",
         version: "1.0.0",

@@ -1,4 +1,4 @@
-import jwt from "jsonwebtoken";
+import jwt, { SignOptions } from "jsonwebtoken";
 import env from "./env";
 import { JWTPayload } from "../types";
 
@@ -8,9 +8,11 @@ import { JWTPayload } from "../types";
  * @returns Token JWT signé
  */
 export function generateToken(payload: JWTPayload): string {
-  return jwt.sign(payload, env.JWT_SECRET, {
-    expiresIn: env.JWT_EXPIRES_IN,
-  });
+  const options: SignOptions = {
+    expiresIn: parseInt(env.JWT_EXPIRES_IN, 10),
+  };
+
+  return jwt.sign(payload, env.JWT_SECRET, options);
 }
 
 /**

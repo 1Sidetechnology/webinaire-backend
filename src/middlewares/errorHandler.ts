@@ -14,7 +14,7 @@ export class AppError extends Error {
  * Middleware global de gestion des erreurs
  * Doit être ajouté en dernier dans la chaîne de middlewares
  */
-export const errorHandler = (err: Error | AppError, req: Request, res: Response, next: NextFunction): void => {
+export const errorHandler = (err: Error | AppError, _req: Request, res: Response, _next: NextFunction): void => {
   // Log l'erreur pour le débogage
   console.error("❌ Erreur:", err);
 
@@ -38,7 +38,7 @@ export const errorHandler = (err: Error | AppError, req: Request, res: Response,
 /**
  * Middleware pour gérer les routes non trouvées
  */
-export const notFoundHandler = (req: Request, res: Response, next: NextFunction): void => {
+export const notFoundHandler = (_req: Request, res: Response, _next: NextFunction): void => {
   res.status(404).json({
     success: false,
     error: "Route non trouvée",
